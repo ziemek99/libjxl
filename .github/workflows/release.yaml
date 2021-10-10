@@ -16,6 +16,7 @@ on:
   push:
     branches:
       - main
+      - patch-8
       - v*.*.x
   release:
     types: [ published ]

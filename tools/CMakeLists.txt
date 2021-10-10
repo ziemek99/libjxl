@@ -131,6 +131,7 @@ if(JPEGXL_ENABLE_TOOLS)
     cjxl.cc
     speed_stats.cc
     cjxl_main.cc
+    param_heuristics.cc
   )
   target_link_libraries(cjxl
       box

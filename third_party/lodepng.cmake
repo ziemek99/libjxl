@@ -15,6 +15,8 @@
 add_library(lodepng STATIC EXCLUDE_FROM_ALL
   lodepng/lodepng.cpp
   lodepng/lodepng.h
+  lodepng/lodepng_util.cpp
+  lodepng/lodepng_util.h
 )
 # This library can be included into position independent binaries.
 set_target_properties(lodepng PROPERTIES POSITION_INDEPENDENT_CODE TRUE)

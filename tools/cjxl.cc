@@ -40,6 +40,7 @@
 #include "tools/args.h"
 #include "tools/box/box.h"
 #include "tools/cpu/cpu.h"
+#include "tools/param_heuristics.h"
 #include "tools/speed_stats.h"
 
 namespace jpegxl {
@@ -575,6 +576,12 @@ jxl::Status CompressArgs::ValidateArgs(const CommandLineParser& cmdline) {
   bool got_quality = cmdline.GetOption(opt_quality_id)->matched();
   bool got_intensity_target =
       cmdline.GetOption(opt_intensity_target_id)->matched();
+  int palette_colors = PalettizedColorsPNG(file_in);
+
+  if (palette_colors) {
+    params.modular_mode = true;
+    params.palette_colors = palette_colors;
+  }
 
   if (got_quality) {
     default_settings = false;
